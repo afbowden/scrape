@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 8080;
+var PORT = 3000;
 
 // Initialize Express
 var app = express();
@@ -31,51 +31,71 @@ mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true 
 
 // Routes
 
-// A GET route for scraping the echoJS website
-app.get("/scrape", function(req, res) {
+// // A GET route for scraping the echoJS website
+// app.get("/scrape", function(req, res) {
+//   // First, we grab the body of the html with axios
+//   axios.get("https://techcrunch.com/startups/").then(function(response) {
+//     // Then, we load that into cheerio and save it to $ for a shorthand selector
+//     var $ = cheerio.load(response.data);
 
-  // here empty
-  // First, we grab the body of the html with axios
-  axios.get("https://www.technewsworld.com/").then(function(response) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
-    var $ = cheerio.load(response.data);
+//     // Now, we grab every h2 within an article tag, and do the following:
+//     $("article.post-block").each(function(i, element) {
+//       // Save an empty result object
+//       var result = {};
 
-    // Now, we grab every h2 within an article tag, and do the following:
-    $("div.story-list").each(function(i, element) {
-      // Save an empty result object
-      var result = {};
+//       // Add the text and href of every link, and save them as properties of the result object
+//       result.title = $(this)
+//         .children("h2")
+//         .text("post-block__title");
+//       // result.link = $(this)
+//       //   .children("a")
+//       //   .attr("");
 
-      // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(element)
-        .children("div.title")
-        .text();
-      result.summary = $(element)
-        .children("div.teaser")
-        .text();
-      result.link = $(element)
-        .children("div.image")
-        .children()
-        .attr("href");
-      result.img = $(element)
-        .children("div.image")
-        .children()
-        .children()
-        .attr("src");
-      // Create a new Article using the `result` object built from scraping
-      db.Article.create(result)
-        .then(function(dbArticle) {
-          // View the added result in the console
-          console.log(dbArticle);
-        })
-        .catch(function(err) {
-          // If an error occurred, log it
-          console.log(err);
-        });
+//       // Create a new Article using the `result` object built from scraping
+//       db.Article.create(result)
+//         .then(function(dbArticle) {
+//           // View the added result in the console
+//           console.log(dbArticle);
+//         })
+//         .catch(function(err) {
+//           // If an error occurred, log it
+//           console.log(err);
+//         });
+//     });
+
+//     // Send a message to the client
+//     res.send("Scrape Complete");
+//   });
+// });
+ axios.get("https://www.technewsworld.com/").then(function(response) {
+
+  // Load the Response into cheerio and save it to a variable
+  // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+  var $ = cheerio.load(response.data);
+
+  // An empty array to save the data that we'll scrape
+  var results = [];
+
+  // With cheerio, find each p-tag with the "title" class
+  // (i: iterator. element: the current element)
+  $("div.story-list").each(function(i, element) {
+
+    // Save the text of the element in a "title" variable
+    var title = $(element).children("div.title").text();
+    var summary = $(element).children("div.teaser").text();
+    var link = $(element).children("div.image").children().attr("href");
+    var img = $(element).children("div.image").children().children().attr("src");
+    // Save these results in an object that we'll push into the results array we defined earlier
+    results.push({
+      title: title,
+      summary: summary,
+      link: link,
+      img: img
     });
-
-    // Send a message to the client
-    res.send("Scrape Complete");
   });
+
+  // Log the results once you've looped through each of the elements found with cheerio
+  console.log(results);
 });
 
 // Route for getting all Articles from the db

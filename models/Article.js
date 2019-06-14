@@ -12,7 +12,16 @@ var ArticleSchema = new Schema({
     required: true
   },
   // `link` is required and of type String
+  summary: {
+    type: String,
+    required: true
+  },
   link: {
+    type: String,
+    required: true
+  },
+
+  img: {
     type: String,
     required: true
   },
