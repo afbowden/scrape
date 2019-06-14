@@ -15,5 +15,13 @@
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "mongoose": "^5.5.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afb5309/scrape.git"
+  },
+  "bugs": {
+    "url": "https://github.com/afb5309/scrape/issues"
+  },
+  "homepage": "https://github.com/afb5309/scrape#readme"
 }
