@@ -32,8 +32,9 @@ mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true 
 // Routes
 
 // A GET route for scraping the echoJS website
-app.get("/scrape", function(req, res) {
 
+app.get("/scrape", function(req, res) {
+console.log("I'm scraping okay!")
   // here empty
   // First, we grab the body of the html with axios
   axios.get("https://www.technewsworld.com/").then(function(response) {

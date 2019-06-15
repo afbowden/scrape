@@ -1,4 +1,15 @@
 // Grab the articles as a json
+$("#refresh").on("click", function() {
+	console.log("Clicked!")
+	$.ajax({
+			method: "GET",
+			url: "/scrape",
+	}).done(function(data) {
+			console.log(data)
+			window.location = "/"
+	})
+});
+
 $.getJSON("/articles", function(data) {
 	// For each one
 	for (var i = 0; i < data.length; i++) {
