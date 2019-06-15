@@ -5,21 +5,21 @@ $("#refresh").on("click", function() {
 			method: "GET",
 			url: "/scrape",
 	}).done(function(data) {
-			console.log(data)
+		console.log(data)
 			window.location = "/"
 	})
 });
 
-$.getJSON("/articles", function(data) {
-	// For each one
-	for (var i = 0; i < data.length; i++) {
-	  // Display the apropos information on the page
-		$("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].summary + "<br />" + data[i].link + "<br />" + data[i].img +  "</p>");
-		console.log(data[1].summary)
-	}
-  });
-  
-  
+$("#saveArticle").on("click", function() {
+	var thisId = $(this).attr("data-id");
+	$.ajax({
+			method: "POST",
+			url: "/articles/save/" + thisId
+	}).done(function(data) {
+			window.location = "/"
+	})
+});
+
   // Whenever someone clicks a p tag
   $(document).on("click", "p", function() {
 	// Empty the notes from the note section
@@ -30,7 +30,7 @@ $.getJSON("/articles", function(data) {
 	// Now make an ajax call for the Article
 	$.ajax({
 	  method: "GET",
-	  url: "/articles/" + thisId
+	  url: "/articles" + thisId
 	})
 	  // With that done, add the note information to the page
 	  .then(function(data) {

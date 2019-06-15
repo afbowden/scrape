@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
 
   <title>Tech News</title>
   <style>
@@ -17,42 +18,6 @@
     }
     .nav-styles{
       padding-top: 7.5px;
-    }
-
-    #wrapper {
-      width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 5%;
-    }
-
-    #articles {
-      display: inline-block;
-      overflow: auto;
-      width: 60%;
-      height: 700px;
-    }
-
-    #notes {
-      float: right;
-      width: 30%;
-    }
-
-    textarea,
-    input {
-      display: block;
-      width: 100%;
-      background-color: #FCF5C7;
-    }
-
-    input {
-      height: 36px;
-      font-size: 24px;
-    }
-
-    textarea {
-      height: 200px;
-      font-size: 18px;
     }
 
     .brand-logo{
@@ -74,10 +39,9 @@
   </div>
   </nav>
   <div id="wrapper">
-    <h1>Updated Articles</h1>
      {{{body}}}
-    <div id="articles"></div>
-    <div id="notes"></div>
+    {{!-- <div id="articles"></div>
+    <div id="notes"></div> --}}
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="app.js"></script>
