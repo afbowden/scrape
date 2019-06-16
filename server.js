@@ -36,8 +36,8 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
-
+var MONGODB_URI = process.env.MONGODB_URI || ("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 // Routes
 
 // A GET route for scraping the echoJS website
