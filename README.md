@@ -9,7 +9,7 @@
 heroku: https://infinite-beach-33357.herokuapp.com/
 
 ## ABOUT THE APP
-This site webscrapes recent articles from tech news world using npm cheerio
+This website webscrapes recent articles from tech news world using npm cheerio
 - - -
 ## HOW TO USE LIRI
 ### **Video Tutorial**
