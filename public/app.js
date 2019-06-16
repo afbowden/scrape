@@ -88,7 +88,7 @@ $("#refresh").on("click", function() {
 			
 			// Run a POST request to change the note, using what's entered in the inputs
 			$.ajax({
-				type: "DELETE",
+				method: "DELETE",
 				url: "/articles/" + thisId,
 				data: {
 				// Value taken from title input
