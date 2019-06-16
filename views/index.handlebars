@@ -23,17 +23,17 @@
             <div class="row">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{img}}">
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        <img src={{this.img}}>
+                        <a class="save btn-floating halfway-fab waves-effect waves-light red"  data-id={{this._id}}><i class="material-icons">add</i></a>
                     </div>
                     <div class="center-align">
-                        <h1 class="card-title whiteTitle">{{title}}</h1>
+                        <h1 class="card-title whiteTitle">{{this.title}}</h1>
                     </div>
                     <div class="card-content">
-                        <p class="left-align">{{summary}}</p>
+                        <p class="left-align">{{this.summary}}</p>
                     </div>
                     <div class="card-action link">
-                        <a href="{{link}}" class="left">This is a link</a>
+                        <a href={{this.link}} class="left">This is a link</a>
                     </div>
                 </div>
             </div>
