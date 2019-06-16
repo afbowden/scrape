@@ -14,7 +14,7 @@
         font-weight: bolder;
     }
 </style>
-<h1 class="updatedArticles">Updated Articles</h1>
+
 <div class="container center-align">
     {{#each articles}}
     <div class="col s12 m12">
@@ -24,7 +24,8 @@
                 <div class="card">
                     <div class="card-image">
                         <img src={{this.img}}>
-                        <a class="save btn-floating halfway-fab waves-effect waves-light red"  data-id={{this._id}}><i class="material-icons">add</i></a>
+                        <a class="save btn-floating halfway-fab waves-effect waves-light indigo darken-1"  data-id={{this._id}}><i class="material-icons">add</i></a>
+                         <a class="comment btn-floating left halfway-fab waves-effect waves-light amber accent-2"  data-id={{this._id}}><i class="material-icons">create</i></a>
                     </div>
                     <div class="center-align">
                         <h1 class="card-title whiteTitle">{{this.title}}</h1>

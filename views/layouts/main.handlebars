@@ -7,20 +7,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-
   <title>Tech News</title>
   <style>
     body {
       background-color: rgb(245, 245, 245)
     }
-    nav{
+
+    nav {
       height: 85px;
     }
-    .nav-styles{
+    #notes {
+      float: right;
+      width: 30%;
+    }
+    .nav-styles {
       padding-top: 7.5px;
     }
-
-    .brand-logo{
+    .artTitle{
+      text-align:center;
+    }
+    .brand-logo {
       margin-right: 35px;
     }
   </style>
@@ -30,21 +36,23 @@
   <nav>
     <div class="nav-wrapper cyan lighten-3">
       <div class="nav-styles">
-      <a href="/" class="brand-logo black-text right hide-on-med-and-down">Technology News</a>
-      <ul class="left">
+        <a href="/" class="brand-logo black-text right hide-on-med-and-down">Technology News</a>
+        <ul class="left">
           <li><a href="/saved" class="waves-effect waves-light indigo darken-1 btn center-align">Saved Articles<i class="material-icons right">add_circle</i></a></li>
           <li><a href="/" id="refresh" class="waves-effect waves-light indigo darken-1 btn">Get News<i class="material-icons right">refresh</i></a></li>
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
   </nav>
   <div id="wrapper">
-     {{{body}}}
-    {{!-- <div id="articles"></div>
-    <div id="notes"></div> --}}
+    <h1 class="artTitle">Articles</h1>
+    {{!-- <div id="articles"></div> --}}
+    <div id="notes"></div>
+
+    {{{body}}}
+   
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="app.js"></script>
- 
 </body>
 </html>
